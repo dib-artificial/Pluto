@@ -19,6 +19,17 @@
 
 Pluto is designed to operate with an extremely small memory footprint and can run effectively with approximately **0.5 MB of RAM**.
 
+## Supported Hardware
+
+Pluto currently supports the following MCU and embedded platforms:
+
+- **Arduino Mega**
+- **ESP32**
+- **Raspberry Pi**
+- **STM32**
+
+Pluto is designed to be adaptable across different microcontroller and embedded hardware architectures, allowing the same natural-language control concept to be applied across multiple platforms.
+
 ## Get Pluto
 
 Pluto is available as a **physical hardware product**.
