@@ -54,3 +54,19 @@ We see Pluto as an **early exploration toward AGI-like intelligence at the edge*
 
 Pluto's long-term goal is to make embedded hardware programmable through **communication rather than traditional code**.
 
+
+## Get Pluto
+
+Pluto is available as a **physical hardware product**.
+
+### Pluto 0.1
+
+**$450 USD**
+
+[**Buy Pluto 0.1 →**](https://nazdev.gumroad.com/l/pluto_0_1)
+
+### Pluto 0.3
+
+**$799 USD**
+
+[**Buy Pluto 0.3 →**](https://nazdev.gumroad.com/l/pluto_0_3)
