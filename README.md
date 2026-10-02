@@ -122,7 +122,7 @@ If you are interested in supporting the development of future Pluto versions, ha
 
 If you would like to support the ongoing development of Pluto:
 
-[**Support Pluto Development →**](https://nazdev.gumroad.com/l/jajbqj)
+[**Support Pluto Development →**](https://nazdev.gumroad.com/l/support)
 
 ---
 
