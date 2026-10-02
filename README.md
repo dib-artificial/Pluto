@@ -86,11 +86,15 @@ Pluto is currently under active development.
 
 We are working toward **Pluto 1.5 Flash** and **Pluto 2.5**, with a major expansion of Pluto's capabilities.
 
-The future versions are being designed to run directly on smartphones with approximately **2 GB of RAM and 10 GB of storage**, bringing Pluto's natural-language processing capabilities beyond traditional microcontrollers.
+The future versions are being designed to run directly on smartphones and use a portion of the phone's available system resources. Pluto 1.5 Flash and Pluto 2.5 are planned to use approximately **2 GB of RAM and 10 GB of storage** from the host smartphone, rather than requiring dedicated memory and storage hardware.
+
+For example, on a smartphone with **8 GB of RAM**, Pluto may use approximately **2 GB of the available RAM** while running, with the remaining system resources available to the smartphone and other applications.
 
 The goal is for Pluto to understand and process user instructions in a more human-like way and use that understanding to perform tasks.
 
-Pluto will be designed to communicate directly with smartphones and control a wide range of external hardware and embedded systems.
+Pluto will be designed to communicate directly with the smartphone and control a wide range of external hardware and embedded systems.
+
+
 
 ### The Long-Term Vision
 
