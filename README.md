@@ -12,6 +12,11 @@
 
 ## What is Pluto?
 
+## Pluto in Action
+
+[![Pluto Demo](https://img.youtube.com/vi/YZDIKQmdnc5Rv1WU/maxresdefault.jpg)](https://www.youtube.com/watch?v=YZDIKQmdnc5Rv1WU)
+
+
 **Pluto is a Natural Language system designed to run directly inside microcontrollers (MCUs) and control the hardware from within the chip itself — without requiring traditional programming for every new task.**
 
 Pluto is designed to operate with an extremely small memory footprint and can run effectively with approximately **0.5 MB of RAM**.
