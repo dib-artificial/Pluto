@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <strong>Talk to your hardware instead of programming it.</strong>
+  <strong>Pluto — Talk to your hardware instead of programming it.</strong>
 </p>
 
 ---
