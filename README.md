@@ -14,7 +14,7 @@
 
 ## Pluto in Action
 
-[![Pluto Demo](https://img.youtube.com/vi/YZDIKQmdnc5Rv1WU/maxresdefault.jpg)](https://youtu.be/LQiPAEYzljU?si=YXGhKfedtBRPcW1z)
+[![Pluto Demo](https://img.youtube.com/vi/LQiPAEYzljU/maxresdefault.jpg)](https://www.youtube.com/watch?v=LQiPAEYzljU)
 
 
 **Pluto is a Natural Language system designed to run directly inside microcontrollers (MCUs) and control the hardware from within the chip itself — without requiring traditional programming for every new task.**
