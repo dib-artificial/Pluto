@@ -1,4 +1,4 @@
-# Pluto
+# Pluto — A Natural Language Model Designed Toward General Intelligence
 
 <p align="center">
   <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjfFumYblOJGu4pKNwpMDNlA4oIBKXIH7s5IsITul3uC08ZWFP1CgTSKPVpA40JpGc9WXhCiOsp5zpe7cmJrldSbJW-8k8zahRKjiTzcErRowrgG32LbL1sQZVcBA6eInDKg8REafIteX_tka9otnZCZ469k4XK2rGNxhhFtzcWsaUYjDbpb-AqbUBH63M/s1600/PLUTO_LOGO.jpg" width="180">
