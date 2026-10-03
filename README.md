@@ -34,6 +34,10 @@ Pluto is designed to be adaptable across different microcontroller and embedded 
 
 Pluto is available as a **physical hardware product**.
 
+<p align="center">
+  <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjyxPSXvv19HQfH4xyJ9JFE16Ci-HXgehL5g4-K5FGMS2iv__etasNIq81SyBKWIrnjWhtvE_1ASC1cQb9WFxLCYa9hZRUkIb34Zg24R0MrT9qPsNWVGCgxAwzRQ42u_5VY31nI_vhr22Ry-1ZKoBDCFVrpK0Oikks0C1u8CQ6Da9MY80yOjeJ-AijkKfA/s1600/pluto_product.jpg">
+</p>
+
 ### Pluto 0.1
 
 **$450 USD**
