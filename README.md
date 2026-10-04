@@ -72,6 +72,12 @@ Control Servo
 
 ```
 
+# PLUTO is a revolutionary architecture designed to operate directly on MCUs, enabling intelligent, real-time control of hardware at the embedded level. Unlike conventional systems that rely on pattern matching, Pluto is designed to emulate the structure of human thought—transforming natural language into structured reasoning and actionable instructions. This makes Pluto more than an embedded control architecture; it represents a direct step toward bringing AGI-inspired reasoning into the world of edge devices and autonomous machines.
+
+<p align="center">
+  <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgc22GwoFwX21ftEeICQQ_NbWpzSJqTC8JPP5En7U0uA7X-3mACbanXQZtXvKMWXABr4v843Yuzo_aScsAtZP4HkfUn3sWMavipawIpC7PQ9M4Cowoi5oapfhk_gBnPi7LN3G2eGzEsTICGWH0e1R3a8IQRUg6Voupl0yMonK26p0Zh0fQnXi2ORzx8JyM/s1600/block_d.png">
+</p>
+
 ## Get Pluto
 
 Pluto is available as a **physical hardware product**.
