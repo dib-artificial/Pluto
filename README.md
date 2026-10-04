@@ -30,6 +30,48 @@ Pluto currently supports the following MCU and embedded platforms:
 
 Pluto is designed to be adaptable across different microcontroller and embedded hardware architectures, allowing the same natural-language control concept to be applied across multiple platforms.
 
+## How Pluto Works
+
+Pluto is designed to allow users to control hardware through natural-language instructions instead of writing traditional firmware code.
+
+The user describes what they want to do, and Pluto interprets the instruction, organizes the required operations, and executes them through the connected MCU and hardware.
+
+### Example: — Gyroscope + Servo Motor
+
+Suppose a gyroscope sensor is connected to the **SDA/SCL** pins, and a servo motor is connected to **Pin 15**.
+
+The user can simply tell Pluto:
+
+> "I connected a gyroscope sensor to your SDA and SCL pins, and a servo motor to Pin 15. Keep the servo balanced at 0 degrees."
+
+Pluto interprets the instruction and performs the required hardware operations.
+
+```text
+User:
+"I connected a gyroscope sensor to SDA/SCL and a servo motor
+to Pin 15. Keep the servo balanced at 0 degrees."
+
+        ↓
+
+Pluto Understanding
+
+        ↓
+
+I²C → Gyroscope
+Pin 15 → Servo Motor
+
+        ↓
+
+Read Gyroscope
+        ↓
+Process Orientation
+        ↓
+Calculate Required Servo Position
+        ↓
+Control Servo
+
+```
+
 ## Get Pluto
 
 Pluto is available as a **physical hardware product**.
