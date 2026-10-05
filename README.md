@@ -181,7 +181,7 @@ If you are interested in supporting the development of future Pluto versions, ha
 
 🌐 **Website:** [Visit us](https://dibsoftiot.com/)
 
-💼 **LinkedIn:** [Follow Pluto Development](https://www.linkedin.com/in/nazmul-agi/)
+💼 **LinkedIn:** [Follow LinkedIn](https://www.linkedin.com/in/nazmul-agi/)
 
 ---
 
