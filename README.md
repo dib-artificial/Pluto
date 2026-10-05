@@ -12,7 +12,7 @@
 
 ## What is Pluto?
 
-[![Pluto Demo](https://img.youtube.com/vi/LQiPAEYzljU/maxresdefault.jpg)](https://www.youtube.com/watch?v=LQiPAEYzljU)
+[![Pluto Demo](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiW3KlIfi_Hhf8eYrGOzF6er0ST4rB214ZeWKomQER4jtvd0Z9VI4qR_i6fprcAkuSyj1S9OpzT44TnY0i49wtsDRgqGCN63u0iDd1AQyeJ9_4nN0ymLYeS0nWAKW7U2RuMP22NmA-uy_InK8iv5rORhmT2A0IZjoIRok-2Hi444K8-LgEnlU6LwpNqUmU/s1600/pluto_ai_th.jpg)](https://www.youtube.com/watch?v=TATQVDR8HoY)
 
 
 **Pluto is a Natural Language system designed to run directly inside microcontrollers (MCUs) and control the hardware from within the chip itself — without requiring traditional programming for every new task.**
