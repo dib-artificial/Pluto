@@ -30,6 +30,23 @@ Pluto currently supports the following MCU and embedded platforms:
 
 Pluto is designed to be adaptable across different microcontroller and embedded hardware architectures, allowing the same natural-language control concept to be applied across multiple platforms.
 
+## Hardware Control & Understanding
+
+Pluto is designed to interpret natural-language instructions and translate them into structured operations for embedded hardware.
+
+It can understand and control:
+
+- **GPIO** — Digital HIGH / LOW input and output
+- **PWM** — Variable duty-cycle control for LEDs, motors, and other devices
+- **I²C** — Communication with sensors, displays, memory, and peripheral devices
+- **SPI** — High-speed communication with compatible peripherals
+- **UART / Serial** — Serial communication with external devices
+- **Servo** — Position control and movement sequences
+- **Analog I/O** — Reading analog sensors and generating hardware responses
+- **Timers / Frequency** — Hardware timing, pulse and frequency generation
+- **Sensors** — Processing sensor data and using it in conditional decisions
+- **FRAM / Persistent Memory** — Storing states, instructions, and persistent data
+  
 ## How Pluto Works
 
 Pluto is designed to allow users to control hardware through natural-language instructions instead of writing traditional firmware code.
