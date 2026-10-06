@@ -46,7 +46,15 @@ It can understand and control:
 - **Timers / Frequency** — Hardware timing, pulse and frequency generation
 - **Sensors** — Processing sensor data and using it in conditional decisions
 - **FRAM / Persistent Memory** — Storing states, instructions, and persistent data
-  
+
+## Pluto as an Embedded Intelligence
+
+Pluto can be integrated directly into a microcontroller as an independent intelligence layer, allowing the device to interpret instructions and make hardware-level decisions locally.
+
+For example, a drone could use Pluto to interpret high-level commands and coordinate sensors, motors, and other onboard hardware without relying on a cloud connection.
+
+**Natural Language → Intelligence → Decision → Hardware**
+
 ## How Pluto Works
 
 Pluto is designed to allow users to control hardware through natural-language instructions instead of writing traditional firmware code.
