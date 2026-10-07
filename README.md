@@ -103,6 +103,33 @@ Control Servo
   <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgc22GwoFwX21ftEeICQQ_NbWpzSJqTC8JPP5En7U0uA7X-3mACbanXQZtXvKMWXABr4v843Yuzo_aScsAtZP4HkfUn3sWMavipawIpC7PQ9M4Cowoi5oapfhk_gBnPi7LN3G2eGzEsTICGWH0e1R3a8IQRUg6Voupl0yMonK26p0Zh0fQnXi2ORzx8JyM/s1600/block_d.png">
 </p>
 
+> ### 📌 About Pluto Pricing & Distribution**
+>
+> Pluto is not distributed as a conventional software download.
+>
+> Pluto is a **C++-based embedded intelligence framework** whose core architecture has been developed through several years of independent research and development. Because the core architecture is proprietary, we do not publicly release the complete internal implementation.
+>
+> ### Why is Pluto provided as hardware?
+>
+> If you want to use the current Pluto model, we provide a **pre-configured ESP-based board with the Pluto framework installed**.
+>
+> After purchase, we prepare the hardware, install the Pluto framework, and ship the device directly to your provided address.
+>
+> The listed price includes the costs associated with:
+>
+> * Hardware
+> * Pluto framework installation and configuration
+> * Development and preparation
+> * Packaging and international shipping
+> * Applicable taxes and related costs
+>
+> We are currently an **independently funded research project without external investors**. Revenue from Pluto purchases helps fund continued research, development, hardware testing, and future versions of the architecture.
+>
+> **Customers who purchase Pluto will receive future model/framework updates for their purchased version at no additional software licensing cost**, subject to hardware compatibility.
+>
+> By purchasing Pluto, you are not simply purchasing an ESP board. You are supporting an independent research project and receiving a pre-configured hardware implementation of the current Pluto architecture.
+
+
 ## Get Pluto
 
 Pluto is available as a **physical hardware product**.
