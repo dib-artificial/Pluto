@@ -1,5 +1,5 @@
 # Pluto — A Natural Language Model Designed Toward General Intelligence TinyML
-
+ এই মডেল চালানোর জন্য এতটুকু জায়গা লেগেছে, এটি ভিন্ন হতে পারে।
 ---
 | Memory / File Type | Total Capacity | Pluto Usage | Usage (%) | Remaining |
 |---|---:|---:|---:|---:|
