@@ -51,9 +51,9 @@ The Bluetooth connection between the phone and the ESP32 does not itself require
 The Flutter application source code is available in this repository for inspection. Developers can review the UI, translation workflow, Bluetooth communication, and instruction transmission/reception logic.
 
 
-## Hardware Specifications
+## Hardware Specifications (the module we used)
 
-Pluto runs on an ESP32 development board featuring a CH340 USB-to-UART interface and USB Type-C connector.
+TinyML engine (Pluto) runs on an ESP32 development board featuring a CH340 USB-to-UART interface and USB Type-C connector.
 
 | Specification | Details |
 |---|---|
@@ -80,16 +80,35 @@ Pluto runs on an ESP32 development board featuring a CH340 USB-to-UART interface
 | USB Programming | CH340 USB-to-UART bridge |
 
 
- এই মডেল চালানোর জন্য এতটুকু জায়গা লেগেছে, এটি ভিন্ন হতে পারে।
  
  <p align="center">
   <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1XK4v_bfJb5ccAlxf0kqGwsnSIONPRoDFdWVbES4NLJnObAcEwJVTAaAeIRq9mDLp12Qaz7OJDBwonpfDCDZyE9-BMQ8R85BD79IEAUv3vqJzPjtGWCwzAKaiZd6XWqq0iYAx6qXS69grQTGXQICHY3izBB7CqFr_9uYKc-iTC4XvjB5Fw0pcdlk2Two/s1600/esp_code.jpg">
 </p>
 
 ---
+## Memory and Firmware Footprint
+
 | Memory / File Type | Total Capacity | Pluto Usage | Usage (%) | Remaining |
 |---|---:|---:|---:|---:|
 | ESP32 Flash (Total) | 4 MB (4,194,304 bytes) | 1,169,787 bytes (≈ 1.115 MiB) | ≈ 27.9% | ≈ 2.89 MiB |
 | Application Flash (Allocated) | 1,310,720 bytes (1.25 MiB) | 1,169,787 bytes (≈ 1.115 MiB) | 89% | 140,933 bytes |
 | ESP32 RAM (Global/Dynamic) | 327,680 bytes (320 KiB) | 101,576 bytes (≈ 99.2 KiB) | 30% | 226,104 bytes |
+| Hardware Control Layer (Flash) | Application Flash | — | ≈ 28% | — |
+| Hardware Control Layer (RAM) | ESP32 RAM | — | ≈ 9% | — |
+| Pluto TinyML Engine (Flash) | Application Flash | — | ≈ 61% | — |
+| Pluto TinyML Engine (RAM) | ESP32 RAM | — | ≈ 21% | — |
 | `pluto_ML_AI.ino.bin` (Firmware Binary) | — | 1,143 KB (reported) | — | — |
+
+> [!WARNING]
+> **Memory Usage Depends on Hardware and Configuration**
+>
+> Pluto's memory footprint depends on three primary factors:
+>
+> 1. **Microcontroller capabilities:** Available Flash, RAM, CPU architecture, and processing capacity.
+> 2. **Hardware control-layer functions:** The number and type of supported functions, such as Bluetooth, GPIO, I²C (SDA/SCL), and other peripherals.
+> 3. **TinyML engine configuration:** Adding more hardware control functions can increase the size of the overall system and its supporting code, affecting the resources available to the TinyML engine.
+>
+> The percentages above are configuration-specific estimates based on the reported build. The TinyML engine figures are calculated by subtracting the estimated hardware control-layer usage from the total reported application Flash and RAM usage.
+
+
+
