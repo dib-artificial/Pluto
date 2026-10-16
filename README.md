@@ -79,36 +79,87 @@ TinyML engine (Pluto) runs on an ESP32 development board featuring a CH340 USB-t
 | Programming Platforms | Arduino IDE, ESP-IDF |
 | USB Programming | CH340 USB-to-UART bridge |
 
-
+---
  
  <p align="center">
-  <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1XK4v_bfJb5ccAlxf0kqGwsnSIONPRoDFdWVbES4NLJnObAcEwJVTAaAeIRq9mDLp12Qaz7OJDBwonpfDCDZyE9-BMQ8R85BD79IEAUv3vqJzPjtGWCwzAKaiZd6XWqq0iYAx6qXS69grQTGXQICHY3izBB7CqFr_9uYKc-iTC4XvjB5Fw0pcdlk2Two/s1600/esp_code.jpg">
+  <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDeFP5nmIg39YnzMugLUT2XHQysJa51j70RrCQwSHBYMPhhQzk5CBLesmZpXMaiZdL2MHTVJvgt_HZupGpjxnREkcAgWFJ6mmqLCWNP53R6KtpSvblnh85J5YX_cicgST64XnLXkwXslqVpkPZ1qCl-Z91I_3EpHElXe-98wi1Mo2Hy0nPrW4GWQSWHPE/s1600/esp_code_data.jpg">
 </p>
 
----
 ## Memory and Firmware Footprint
 
-| Memory / File Type | Total Capacity | Pluto Usage | Usage (%) | Remaining |
+The Pluto firmware is evaluated in three configurations: the Hardware Control Layer, the Pluto TinyML Engine, and the complete integrated firmware.
+
+### Memory Usage Summary
+
+| Memory / File Type | Total Capacity | Used | Usage (%) | Remaining |
 |---|---:|---:|---:|---:|
-| ESP32 Flash (Total) | 4 MB (4,194,304 bytes) | 1,169,787 bytes (≈ 1.115 MiB) | ≈ 27.9% | ≈ 2.89 MiB |
-| Application Flash (Allocated) | 1,310,720 bytes (1.25 MiB) | 1,169,787 bytes (≈ 1.115 MiB) | 89% | 140,933 bytes |
-| ESP32 RAM (Global/Dynamic) | 327,680 bytes (320 KiB) | 101,576 bytes (≈ 99.2 KiB) | 30% | 226,104 bytes |
-| Hardware Control Layer (Flash) | Application Flash | — | ≈ 28% | — |
-| Hardware Control Layer (RAM) | ESP32 RAM | — | ≈ 9% | — |
-| Pluto TinyML Engine (Flash) | Application Flash | — | ≈ 61% | — |
-| Pluto TinyML Engine (RAM) | ESP32 RAM | — | ≈ 21% | — |
-| `pluto_ML_AI.ino.bin` (Firmware Binary) | — | 1,143 KB (reported) | — | — |
+| Hardware Control Layer — Flash | 1,310,720 bytes (1.25 MiB) | 378,948 bytes (≈ 370.1 KiB) | 28% | 931,772 bytes |
+| Hardware Control Layer — RAM | 327,680 bytes (320 KiB) | 31,100 bytes (≈ 30.4 KiB) | 9% | 296,580 bytes |
+| Pluto TinyML Engine — Flash | 1,310,720 bytes (1.25 MiB) | 806,788 bytes (≈ 787.9 KiB) | 61% | 503,932 bytes |
+| Pluto TinyML Engine — RAM | 327,680 bytes (320 KiB) | 69,564 bytes (≈ 67.9 KiB) | 21% | 258,116 bytes |
+| Complete Firmware — Flash | 1,310,720 bytes (1.25 MiB) | 1,174,724 bytes (≈ 1.12 MiB) | 89% | 135,996 bytes |
+| Complete Firmware — RAM | 327,680 bytes (320 KiB) | 100,380 bytes (≈ 98.0 KiB) | 30% | 227,300 bytes |
+| `pluto_ML_AI.ino.bin` — Firmware Binary | — | 1,148 KB (reported) | — | — |
+
+### Build Report: Hardware Control Layer
+
+```text
+Sketch uses 378948 bytes (28%) of program storage space.
+Maximum is 1310720 bytes.
+
+Global variables use 31100 bytes (9%) of dynamic memory,
+leaving 296580 bytes for local variables.
+Maximum is 327680 bytes.
+```
+
+The Hardware Control Layer manages hardware-facing functions such as Bluetooth communication, GPIO, I²C (SDA/SCL), and other supported peripheral operations.
+
+### Build Report: Pluto TinyML Engine
+
+```text
+Sketch uses 806788 bytes (61%) of program storage space.
+Maximum is 1310720 bytes.
+
+Global variables use 69564 bytes (21%) of dynamic memory,
+leaving 258116 bytes for local variables.
+Maximum is 327680 bytes.
+```
+
+The Pluto TinyML Engine provides the core instruction-processing functionality. Its reported memory usage represents the engine configuration tested in this build.
+
+### Build Report: Complete Integrated Firmware
+
+```text
+Sketch uses 1174724 bytes (89%) of program storage space.
+Maximum is 1310720 bytes.
+
+Global variables use 100380 bytes (30%) of dynamic memory,
+leaving 227300 bytes for local variables.
+Maximum is 327680 bytes.
+
+pluto_ML_AI.ino.bin = 1148 KB
+```
+
+This build report represents the integrated firmware containing the hardware control layer and Pluto TinyML Engine.
 
 > [!WARNING]
-> **Memory Usage Depends on Hardware and Configuration**
+> **Memory Measurements and Build Configuration**
 >
-> Pluto's memory footprint depends on three primary factors:
+> The memory figures above were obtained by compiling the Hardware Control Layer, Pluto TinyML Engine, and complete firmware in separate configurations.
+>
+> When components are compiled separately, their memory usage may differ from their usage in the integrated firmware. Compiler optimizations, shared code, linked libraries, global variables, and build configuration can affect the results.
+>
+> Therefore, the individual component measurements should not be expected to add up exactly to the integrated firmware measurements.
+>
+> Pluto's overall memory footprint depends on:
 >
 > 1. **Microcontroller capabilities:** Available Flash, RAM, CPU architecture, and processing capacity.
-> 2. **Hardware control-layer functions:** The number and type of supported functions, such as Bluetooth, GPIO, I²C (SDA/SCL), and other peripherals.
-> 3. **TinyML engine configuration:** Adding more hardware control functions can increase the size of the overall system and its supporting code, affecting the resources available to the TinyML engine.
+> 2. **Hardware control functions:** The number and type of supported functions, including Bluetooth, GPIO, I²C, and other peripherals.
+> 3. **TinyML engine configuration:** Adding more control-layer functions can increase the size of the overall system and its supporting code, potentially affecting the TinyML engine's implementation and resource requirements.
 >
-> The percentages above are configuration-specific estimates based on the reported build. The TinyML engine figures are calculated by subtracting the estimated hardware control-layer usage from the total reported application Flash and RAM usage.
+> All reported values are specific to the tested ESP32 hardware and build configurations.
+
+
 
 
 
