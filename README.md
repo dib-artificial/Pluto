@@ -1,4 +1,39 @@
-# Pluto — A Natural Language Model Designed Toward General Intelligence TinyML AI
+# TinyML AI - (Pluto Engine): A natural language model designed for general intelligence that can directly control microchips.
+
+
+
+> [!NOTE]
+> To provide a detailed explanation of how our new model functions and its internal structure, the entire presentation has been divided into 4 sections:
+>
+> ---
+>
+> **01 — Overview**
+>
+> An overview of how TinyML AI (the Pluto Engine) operates within a microchip, including further details.
+>
+> ---
+>
+> **02 — Engine Functionality**
+>
+> A discussion on how the Pluto Engine functions.
+>
+> ---
+>
+> **03 — Training & Limitations**
+>
+> How the Pluto Engine is trained, and the limitations of its capabilities when running on a microchip.
+>
+> ---
+>
+> **04 — Applications & Industries**
+>
+> Potential applications and sectors where the Pluto Engine can be utilized.
+
+## 01 — Overview (This section provides a detailed walkthrough, including experiments using an ESP32 device.)
+
+> [!NOTE]
+> My language is Bengali; I write articles in Bengali first and then translate them into English. If you have any trouble understanding something, please feel free to send me a direct message on LinkedIn. https://www.linkedin.com/in/nazmul-agi/
+
 
 [![Pluto Demo](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEguk_Aeu9srpZDPxlZ4LRiPXA921hZlweoRngAm91TtbJyR1iGf3llINPmlIvAuvuhxjTUpeVC0GCqSfM7Td-_BYBvLAbP_1ShysDFi-39ClHsxATPuRqJLte3ZLjOMQvIeRT2V-JDT_j34XmV2ton-xjn0xfJnryMsP2uoKHaBVz3qWemFdJQvTFlq-1o/s1600/pluto_image_video.jpg)](https://www.youtube.com/watch?v=QuJR2e3oPL4)
 
@@ -51,7 +86,7 @@ The Bluetooth connection between the phone and the ESP32 does not itself require
 The Flutter application source code is available in this repository for inspection. Developers can review the UI, translation workflow, Bluetooth communication, and instruction transmission/reception logic.
 
 
-## Hardware Specifications (the module we used)
+## Hardware Specifications (The module we used)
 
 TinyML engine (Pluto) runs on an ESP32 development board featuring a CH340 USB-to-UART interface and USB Type-C connector.
 
@@ -78,6 +113,19 @@ TinyML engine (Pluto) runs on an ESP32 development board featuring a CH340 USB-t
 | Communication Interfaces | UART, SPI, I²C, I²S |
 | Programming Platforms | Arduino IDE, ESP-IDF |
 | USB Programming | CH340 USB-to-UART bridge |
+
+## Hardware Control & Understanding
+
+The current TinyML AI device (Pluto Engine) includes the following features, though some are limited.
+
+- **GPIO** — Digital HIGH / LOW input and output
+- **PWM** — Variable duty-cycle control for LEDs, motors, and other devices
+- **I²C** — Communication with sensors, displays, memory, and peripheral devices
+- **SPI** — High-speed communication with compatible peripherals (Limited)
+- **Servo** — Position control and movement sequences
+- **Analog I/O** — Reading analog sensors and generating hardware responses
+- **Timers / Frequency** — Hardware timing, pulse and frequency generation
+- **Sensors** — Processing sensor data and using it in conditional decisions
 
 ---
  
@@ -158,6 +206,106 @@ This build report represents the integrated firmware containing the hardware con
 > 3. **TinyML engine configuration:** Adding more control-layer functions can increase the size of the overall system and its supporting code, potentially affecting the TinyML engine's implementation and resource requirements.
 >
 > All reported values are specific to the tested ESP32 hardware and build configurations.
+
+---
+
+
+## I²C Sensor Detection Benchmark: ESP32 vs Pluto - TinyML AI
+
+This benchmark compares a conventional ESP32 I²C address scan with Pluto processing a natural-language instruction to identify connected I²C sensors.
+
+### Test Instruction
+
+```text
+Check how many sensors are connected to I2C SDA GPIO 21 and GPIO 22 (SDA - SCL)
+```
+
+**Pluto's response:**
+
+```text
+One address is found here (0x76)
+```
+
+The detected I²C address was `0x76`.
+
+### Benchmark Results
+
+| Metric | ESP32 Pure I²C Scan | Pluto Engine |
+|---|---:|---:|
+| Execution scope | Direct I²C address scanning | Natural-language processing and task execution |
+| SDA pin | GPIO 21 | GPIO 21 |
+| SCL pin | GPIO 22 | GPIO 22 |
+| I²C clock | 100 kHz | 100 kHz |
+| Addresses checked | 1–126 | Determined by Pluto's implementation |
+| Devices detected | 1 | 1 address reported |
+| Average execution time* | ~18.801 ms | ~110.133 ms |
+| Relative execution time | 1× | ~5.86× |
+
+\* The ESP32 average is calculated from the 18 supplied scan results. The Pluto average is calculated from the 19 supplied results (Tests 031–049), not the complete 50-run dataset.
+
+### Understanding the Difference
+
+A conventional ESP32 I²C scanner directly checks device addresses and reports which devices acknowledge communication.
+
+Pluto performs additional work before or during hardware interaction, including processing the natural-language instruction and executing its internal task workflow.
+
+Consequently, Pluto's total execution time is expected to be higher than that of a direct I²C scan. The approximately 5.86× difference in this sample should not be interpreted as Pluto's hardware-control layer being 5.86× slower, because the two measurements cover different amounts of processing.
+
+### Pluto Benchmark Code
+
+The following code measures the elapsed time of each Pluto function call over 50 iterations.
+
+```cpp
+for (int i = 0; i < 50; i++) {
+
+    int64_t startTime = esp_timer_get_time();
+
+    pluto("Check how many sensors are connected to I2C SDA GPIO 21 and GPIO 22 (SDA - SCL)");
+
+    int64_t endTime = esp_timer_get_time();
+
+    int64_t elapsedUs = endTime - startTime;
+
+    Serial.printf(
+      "Test %03d | %lld us | %.3f ms\n",
+      i,
+      (long long)elapsedUs,
+      elapsedUs / 1000.0
+    );
+}
+```
+
+The measured interval begins immediately before calling `pluto()` and ends when that function returns. Therefore, the result represents the time spent inside the complete function call, including any processing and hardware operations performed synchronously by it.
+
+### Important Warnings and Limitations
+
+**1. Different benchmark scopes**
+
+The pure ESP32 scanner measures direct I²C address scanning, whereas Pluto's measurement includes its instruction-processing workflow. These figures are useful for understanding end-to-end latency, but they are not an isolated comparison of the two systems' hardware-scanning performance.
+
+**2. Results depend on configuration**
+
+Execution time may vary with the ESP32 board, Arduino core version, compiler optimizations, I²C clock, enabled control functions, and the number of addresses or devices checked. Results should be compared under documented, consistent conditions.
+
+**3. RAM usage is not reported in this benchmark**
+
+This benchmark measures elapsed execution time only. It does not measure peak RAM consumption.
+
+Repeated tests may reuse cached data, previously allocated memory, retained task state, or other resources from earlier runs. As a result, simply checking free RAM before and after each function call would not necessarily reveal Pluto's actual peak RAM requirements.
+
+A separate memory benchmark would be needed to investigate heap usage, minimum free heap, stack requirements, and memory retained between runs. These metrics should be measured and reported separately from execution time.
+
+**4. Results are specific to the tested configuration**
+
+The reported values describe the supplied ESP32 test results and Pluto configuration. They should not be treated as universal performance figures for all supported microcontrollers or Pluto versions.
+
+### Conclusion
+
+In the supplied samples, a conventional ESP32 I²C scan completed in approximately 18.8 ms, while Pluto's full instruction-processing workflow took approximately 110.1 ms.
+
+The additional time reflects the broader scope of Pluto's task processing and should be evaluated alongside its hardware-control capabilities, memory requirements, and the complexity of the requested instruction.
+
+---
 
 
 
