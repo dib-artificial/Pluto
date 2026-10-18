@@ -1,4 +1,4 @@
-# Pluto — A Natural Language Model Designed Toward General Intelligence TinyML
+# Pluto — A Natural Language Model Designed Toward General Intelligence TinyML AI
 
 [![Pluto Demo](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEguk_Aeu9srpZDPxlZ4LRiPXA921hZlweoRngAm91TtbJyR1iGf3llINPmlIvAuvuhxjTUpeVC0GCqSfM7Td-_BYBvLAbP_1ShysDFi-39ClHsxATPuRqJLte3ZLjOMQvIeRT2V-JDT_j34XmV2ton-xjn0xfJnryMsP2uoKHaBVz3qWemFdJQvTFlq-1o/s1600/pluto_image_video.jpg)](https://www.youtube.com/watch?v=QuJR2e3oPL4)
 
