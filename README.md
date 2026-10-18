@@ -40,11 +40,9 @@
 > [!WARNING]
 > **Bluetooth Configuration and Flash Memory Optimization**
 >
-> The ESP32 has built-in Bluetooth functionality. However, enabling the internal Bluetooth stack can significantly increase firmware memory usage.
+>If you have watched the video above, you might have noticed that an external Bluetooth module (HC-06) is used, even though the ESP32 module comes with built-in Bluetooth.
 >
-> In this project, the reported flash usage is approximately **80% when using the ESP32's built-in Bluetooth**. To reduce firmware memory usage, an external **HC-06 Bluetooth module** is used instead, bringing the reported flash usage down to approximately **22%**.
->
-> These figures represent the project's observed results and may vary depending on the ESP32 configuration, firmware, libraries, and build environment.
+> This approach was taken to conserve the ESP32's flash memory and RAM. Using the built-in Bluetooth would consume a significant amount of these resources, leading to a memory shortage for the 'Pluto Engine.' Consequently, a separate Bluetooth module was used instead.
 >
 > The HC-06 communicates with the ESP32 through UART2 using the following configuration:
 >
