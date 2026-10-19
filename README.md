@@ -306,6 +306,19 @@ This additional time reflects the scope of the Pluto engine's operational proces
 
 ---
 
+## 02 — Engine Functionality (This section discusses how the Pluto Engine actually works)
+
+<p align="center">
+  <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiUMSZosDP9EleD6kXJu3jS7LPEdOel2IX690niRZngGH39t_IhqdwJkosIG1LHyYVQBoM5tMDQoXnDDRFYeDU88u77QslmXAkADz0yiBikFDAaxTBflHdRu8DDE8sVYqXj_rMlQMeiAUS7Fls0tD1MyYxIbyXthOBs8WI3brDm2LILqnKYYLNMw6NaAmQ/s1600/pluto_engin_block.jpg">
+</p>
+
+
+### Why is this model named "Pluto"?
+
+> It’s quite simple: on August 24, 2006, Pluto was removed from the list of planets. Since then, it has been all but forgotten, which is why I’ve named this (TinyML AI) project "Pluto," so that the name might be heard once again.
+
+---
+
 
 
 
