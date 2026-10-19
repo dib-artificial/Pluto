@@ -393,14 +393,17 @@ During the model training phase, the system is trained using a variety of input-
 >
 > If you are interested in evaluating the Pluto Engine, we can provide a hardware unit with the Pluto Engine pre-installed. You may choose the hardware platform that best suits your testing requirements.
 
-
-
 ---
+
+
+> [!NOTE]
+> **Seeking Technical Feedback**
+>
+> I would greatly appreciate advice, suggestions, or technical feedback from experienced engineers and professionals to help improve and strengthen the Pluto Engine. Your insights would be valuable in guiding its future development and updates.
+
 
 ### Links
 
 🌐 **Website:** [Visit us](https://dibsoftiot.com/)
 
 💼 **LinkedIn:** [Follow LinkedIn](https://www.linkedin.com/in/nazmul-agi/)
-
-
