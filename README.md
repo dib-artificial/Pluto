@@ -1,6 +1,11 @@
 # TinyML AI - (Pluto Engine): A natural language model designed for general intelligence that can directly control microchips.
 
 
+> [!IMPORTANT]
+> **This is an entirely different AI model.**
+>
+> It does not utilize any third-party APIs or models. It features a unique architecture (Pluto Engine) that differs from conventional pattern-based models.
+
 
 > [!NOTE]
 > To provide a detailed explanation of how our new model functions and its internal structure, the entire presentation has been divided into 4 sections:
@@ -235,15 +240,15 @@ The detected I²C address was `0x76`.
 | Average execution time* | ~18.801 ms | ~110.133 ms |
 | Relative execution time | 1× | ~5.86× |
 
-\* The ESP32 average is calculated from the 18 supplied scan results. The Pluto average is calculated from the 19 supplied results (Tests 031–049), not the complete 50-run dataset.
+\* An average value is presented here for the ESP32; during testing, the same command was checked 50 to 100 times.
 
 ### Understanding the Difference
 
-A conventional ESP32 I²C scanner directly checks device addresses and reports which devices acknowledge communication.
+In this context, the ESP32 I²C scanner directly checks the addresses of connected devices or sensors to determine which ones are responding.
 
-Pluto performs additional work before or during hardware interaction, including processing the natural-language instruction and executing its internal task workflow.
+An important point to note here is that the Pluto engine performs several preliminary tasks—such as interpreting language commands, establishing internal structures, and generating instructions for the control layer—before proceeding.
 
-Consequently, Pluto's total execution time is expected to be higher than that of a direct I²C scan. The approximately 5.86× difference in this sample should not be interpreted as Pluto's hardware-control layer being 5.86× slower, because the two measurements cover different amounts of processing.
+Naturally, the Pluto engine’s operation involves more overhead compared to a direct I²C scan. However, this does not imply that the Pluto engine is five times slower. Furthermore, these figures are not definitive, as the time required depends on various factors, such as the complexity of the tasks being executed and the processor speed.
 
 ### Pluto Benchmark Code
 
@@ -269,35 +274,35 @@ for (int i = 0; i < 50; i++) {
 }
 ```
 
-The measured interval begins immediately before calling `pluto()` and ends when that function returns. Therefore, the result represents the time spent inside the complete function call, including any processing and hardware operations performed synchronously by it.
+The measured time shown here begins before the main function is called and ends only after the main function has finished its execution.
+
+This has been done solely for testing purposes; the recorded time includes not only the duration taken by the Pluto engine but also the overhead associated with the underlying hardware.
 
 ### Important Warnings and Limitations
 
 **1. Different benchmark scopes**
 
-The pure ESP32 scanner measures direct I²C address scanning, whereas Pluto's measurement includes its instruction-processing workflow. These figures are useful for understanding end-to-end latency, but they are not an isolated comparison of the two systems' hardware-scanning performance.
+A standard ESP32 scanner measures the process of directly scanning for I²C addresses, whereas the Pluto engine performs additional tasks, such as text processing and managing the control layer. While these metrics are useful for understanding end-to-end latency, they do not provide a direct comparison of the hardware-level scanning performance between the two systems. For a better understanding, please refer to the architecture diagram below.
 
 **2. Results depend on configuration**
 
-Execution time may vary with the ESP32 board, Arduino core version, compiler optimizations, I²C clock, enabled control functions, and the number of addresses or devices checked. Results should be compared under documented, consistent conditions.
+Execution time may vary based on factors such as the ESP32 board, Arduino core version, compiler optimizations, I²C clock frequency, active control functions, and the number of addresses or devices being tested. In short, hardware specifications play a significant role here.
 
 **3. RAM usage is not reported in this benchmark**
 
-This benchmark measures elapsed execution time only. It does not measure peak RAM consumption.
+This benchmark only estimates the Pluto Engine processing time; it does not provide data regarding RAM usage. This is because the model retains certain information—such as task/layer details and historical runtime data—which makes it impossible to directly determine the exact amount of RAM consumed while the Pluto Engine is running.
 
-Repeated tests may reuse cached data, previously allocated memory, retained task state, or other resources from earlier runs. As a result, simply checking free RAM before and after each function call would not necessarily reveal Pluto's actual peak RAM requirements.
-
-A separate memory benchmark would be needed to investigate heap usage, minimum free heap, stack requirements, and memory retained between runs. These metrics should be measured and reported separately from execution time.
+Assessing memory usage would require a separate memory benchmark. Such metrics should be measured and reported independently of execution time.
 
 **4. Results are specific to the tested configuration**
 
-The reported values describe the supplied ESP32 test results and Pluto configuration. They should not be treated as universal performance figures for all supported microcontrollers or Pluto versions.
+The values ​​mentioned here describe the results of the provided ESP32 tests and the Pluto configuration. These should not be considered as performance benchmarks applicable to other supported microcontrollers or different versions of Pluto.
 
 ### Conclusion
 
-In the supplied samples, a conventional ESP32 I²C scan completed in approximately 18.8 ms, while Pluto's full instruction-processing workflow took approximately 110.1 ms.
+In the examples provided above, a standard ESP32 I²C scan took approximately 18.8 milliseconds to complete, whereas the entire instruction-processing workflow of Pluto required about 110.1 milliseconds.
 
-The additional time reflects the broader scope of Pluto's task processing and should be evaluated alongside its hardware-control capabilities, memory requirements, and the complexity of the requested instruction.
+This additional time reflects the scope of the Pluto engine's operational processing. Therefore, this duration should be evaluated in the context of Pluto’s hardware-control capabilities, memory requirements, and the complexity of the instructions.
 
 ---
 
