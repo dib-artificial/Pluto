@@ -49,7 +49,7 @@
 >
 > This approach was taken to conserve the ESP32's flash memory and RAM. Using the built-in Bluetooth would consume a significant amount of these resources, leading to a memory shortage for the 'Pluto Engine.' Consequently, a separate Bluetooth module was used instead.
 >
-> The HC-06 communicates with the ESP32 through UART2 using the following configuration:
+> The Bluetooth module HC-06 communicates with the ESP32 through UART2 using the following configuration:
 >
 > ```cpp
 > #define RX2_PIN 16
